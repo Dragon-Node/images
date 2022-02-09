@@ -3,7 +3,8 @@
 # Minimum Panel Version: 0.7.X
 # ----------------------------------
 FROM debian:buster-slim
-
+COPY --from=library/docker:latest /usr/local/bin/docker /usr/bin/docker
+COPY --from=docker/compose:latest /usr/local/bin/docker-compose /usr/bin/docker-compose
 LABEL author="Michael Parker" maintainer="parker@pterodactyl.io"
 
 ENV DEBIAN_FRONTEND noninteractive
